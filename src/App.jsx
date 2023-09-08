@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { faClone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PhoneNumberInput from "./components/Phone"
 
 function App() {
 
@@ -79,6 +80,8 @@ function App() {
           </span>
 
         </div>
+        
+        <PhoneNumberInput/>
 
       </div>
     </>
