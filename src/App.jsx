@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState } from "react"
 import { faClone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PhoneNumberInput from "./components/Phone"
@@ -22,9 +22,9 @@ function App() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
-    if (inputValue == null) {
-      setWarn(0)
-      return <p className="text-danger">Invalid</p>
+    if (inputValue == '') {
+      setWarn(4)
+      return
     }
     setWarn(2)
     const url = {
@@ -41,10 +41,17 @@ function App() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: dataJson
+    }).then(res => {
+      if (res.status != 200) {
+        setWarn(5)
+        setInputValue('')
+        return
+      } else {
+        setInputValue('')
+        getUrls()
+      }
     })
 
-    setInputValue('')
-    getUrls()
   }
 
   const condicao = (warn) => {
@@ -58,15 +65,32 @@ function App() {
       case 3:
         return <span className="d-flex justify-content-between">
           <p>Your short url: <a href={link} className="text-white" target="_blank" >{shorturl} </a></p>
-          <button className="btn btn-primary"><font-awesome-icon icon="fa-solid fa-clone" /><FontAwesomeIcon icon={faClone} fade /></button>
+          <button className="btn btn-primary" onClick={copy}><font-awesome-icon icon="fa-solid fa-clone" /><FontAwesomeIcon icon={faClone} fade /></button>
         </span>
+        break;
+      case 4:
+        return <p className="text-danger">Please fill the field with a url!</p>
+        break;
+      case 5:
+        return <p className="text-danger">Please enter a valid url!</p>
         break;
       default:
         break;
     }
   }
+  function copy(){
+    let copyText = `https://supershortneerbackend.vercel.app/${shorturl}`
 
-  
+    const txta = document.createElement("textarea")
+    txta.value = copyText
+    document.body.appendChild(txta)
+    txta.select()
+    document.execCommand("copy")
+    alert("Short url copied to clipboard")
+    document.body.removeChild(txta)
+  }
+
+
   return (
 
     <div className="container">
@@ -80,12 +104,13 @@ function App() {
         </div>
 
         <div className="col-lg-2 col-md-2 col-sm-2">
-          <button type="submit" onClick={handleFormSubmit} class="btn btn-primary mb-3">Shrink</button>
+          <button type="submit" onClick={handleFormSubmit} className="btn btn-primary mb-3">Shrink</button>
         </div>
 
       </form>
       <div className="alert alert-secondary">
         {condicao(warn)}
+        {/* {inputValue == '' ? <p className="text-danger">Invalid url</p> : condicao(warn) } */}
       </div>
 
       <PhoneNumberInput />

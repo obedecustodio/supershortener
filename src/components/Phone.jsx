@@ -13,6 +13,10 @@ const PhoneNumberInput = () => {
     const link = `http://localhost:5000/${shorturl}`
 
     const handleGenerate = async () => {
+        if (phoneNumber == '+258') {
+            setWarn(4)
+            return
+          }
         setWarn(2)
         const number = {
             number: phoneNumber
@@ -45,13 +49,28 @@ const PhoneNumberInput = () => {
             case 3:
                 return <span className="d-flex justify-content-between">
                     <p>Your short url: <a href={link} className="text-white" target="_blank" >{shorturl}</a></p>
-                    <button className="btn btn-primary"><font-awesome-icon icon="fa-solid fa-clone" /><FontAwesomeIcon icon={faClone} fade /></button>
+                    <button className="btn btn-primary" onClick={copy}><font-awesome-icon icon="fa-solid fa-clone" /><FontAwesomeIcon icon={faClone} fade /></button>
                 </span>
+                break;
+            case 4:
+                return <p className="text-danger">Please insert your phone number!</p>
                 break;
             default:
                 break;
         }
     }
+
+    function copy(){
+        let copyText = `https://supershortneerbackend.vercel.app/url/${shorturl}`
+    
+        const txta = document.createElement("textarea")
+        txta.value = copyText
+        document.body.appendChild(txta)
+        txta.select()
+        document.execCommand("copy")
+        alert("Short url copied to clipboard")
+        document.body.removeChild(txta)
+      }
     return (
         <div className='container'>
             <h2 className="text-secondary text-center">Whatsapp shorturl</h2>
