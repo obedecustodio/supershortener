@@ -9,11 +9,10 @@ function App() {
   const [shorturl, setShorturl] = useState();
   const [inputValue, setInputValue] = useState("");
   var [warn, setWarn] = useState(1);
-  const link = `http://localhost:5000/${shorturl}`
-  // const link = `https://supershortneerbackend.vercel.app/url/${shorturl}`
+  const link = `https://supershortneerbackend.vercel.app/${shorturl}`
 
   const getUrls = async () => {
-    const req = await fetch('http://localhost:5000/urls')
+    const req = await fetch('https://supershortneerbackend.vercel.app/urls')
     const data = await req.json()
     setLongurl(data[data.length - 1].longurl)
     setShorturl(data[data.length - 1].shorturl)
@@ -37,7 +36,7 @@ function App() {
     const dataJson = JSON.stringify(url)
     console.log(dataJson)
 
-    const req = await fetch('http://localhost:5000/url', {
+    const req = await fetch('https://supershortneerbackend.vercel.app/url', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: dataJson
@@ -78,7 +77,7 @@ function App() {
         break;
     }
   }
-  function copy(){
+  function copy() {
     let copyText = `https://supershortneerbackend.vercel.app/${shorturl}`
 
     const txta = document.createElement("textarea")
@@ -110,7 +109,6 @@ function App() {
       </form>
       <div className="alert alert-secondary">
         {condicao(warn)}
-        {/* {inputValue == '' ? <p className="text-danger">Invalid url</p> : condicao(warn) } */}
       </div>
 
       <PhoneNumberInput />

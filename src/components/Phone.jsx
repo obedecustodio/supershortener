@@ -10,7 +10,7 @@ const PhoneNumberInput = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [shorturl, setShorturl] = useState();
     var [warn, setWarn] = useState(1);
-    const link = `http://localhost:5000/${shorturl}`
+    const link = `https://supershortneerbackend.vercel.app/${shorturl}`
 
     const handleGenerate = async () => {
         if (phoneNumber == '+258') {
@@ -22,7 +22,7 @@ const PhoneNumberInput = () => {
             number: phoneNumber
         }
         const dataJson = JSON.stringify(number)
-        const req = await fetch('http://localhost:5000/num', {
+        const req = await fetch('https://supershortneerbackend.vercel.app/num', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: dataJson
@@ -32,7 +32,7 @@ const PhoneNumberInput = () => {
     }
 
     const getUrls = async () => {
-        const req = await fetch('http://localhost:5000/urls')
+        const req = await fetch('https://supershortneerbackend.vercel.app/urls')
         const data = await req.json()
         setShorturl(data[data.length - 1].shorturl)
         setWarn(3)
@@ -61,7 +61,7 @@ const PhoneNumberInput = () => {
     }
 
     function copy(){
-        let copyText = `https://supershortneerbackend.vercel.app/url/${shorturl}`
+        let copyText = `https://supershortneerbackend.vercel.app/${shorturl}`
     
         const txta = document.createElement("textarea")
         txta.value = copyText
