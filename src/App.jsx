@@ -1,7 +1,10 @@
+import './App.css'
 import { useState } from "react"
 import { faClone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PhoneNumberInput from "./components/Phone"
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import { Body } from './components/Body';
 
 function App() {
 
@@ -92,27 +95,10 @@ function App() {
 
   return (
 
-    <div className="container">
-
-      <h1 className="text-secondary text-center">Super Shortneer</h1>
-
-      <form className="row">
-
-        <div className="col-lg-10 col-md-10 col-sm-10">
-          <input type="url" placeholder="Your Long Url" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className="form-control col-5 mr-2 mb-3" required />
-        </div>
-
-        <div className="col-lg-2 col-md-2 col-sm-2">
-          <button type="submit" onClick={handleFormSubmit} className="btn btn-primary mb-3">Shrink</button>
-        </div>
-
-      </form>
-      <div className="alert alert-secondary">
-        {condicao(warn)}
-      </div>
-
-      <PhoneNumberInput />
-
+    <div>
+      <Navbar/>
+      <Header/>
+      <Body/>
     </div>
 
   )
