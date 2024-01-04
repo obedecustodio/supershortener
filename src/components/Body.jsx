@@ -43,8 +43,7 @@ export const Body = () => {
                                 <div className="row">
                                     <div className="col-10">
                                         {/* <AlertTitle> */}
-                                            <Typography variant="h5" className='text-center p-4 text-white'>
-                                                
+                                            <Typography variant="h5" className='text-center p-4 text-white'>    
                                             </Typography>
                                         {/* </AlertTitle> */}
                                         <p>Here is Your short url: <Link href="#" color="inherit">werds</Link></p>

@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <nav class={backgroundColor} id='nav'>
         <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">Navbar</a>
+          <a class="navbar-brand text-white" href="#">Logo</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,13 +31,13 @@ const Navbar = () => {
                 <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Features</a>
+                <a class="nav-link text-white" href="#">my Urls</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Pricing</a>
+                <a class="nav-link text-white" href="#">Log in</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled text-white" aria-disabled="true">Disabled</a>
+                <a class="nav-link disabled text-white" aria-disabled="true">Sign up</a>
               </li>
             </ul>
           </div>
