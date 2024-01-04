@@ -12,7 +12,7 @@ export const Body = () => {
 
 
 
-                <div className="row">
+                <div className="row p-3">
 
                     <TextField
                         label="Your Long url"
@@ -23,7 +23,7 @@ export const Body = () => {
 
                 </div>
 
-                <div className="row mt-5">
+                <div className="row mt-3">
                     <Stack sx={{ width: '100%' }} spacing={2}>
                         {/* <Alert severity="error" variant='outlined'>
                             <AlertTitle>Error</AlertTitle>
@@ -43,7 +43,7 @@ export const Body = () => {
                         </Alert> */}
                     </Stack>
                 </div>
-                <div className="row mt-5 p-4">
+                <div className="row mt-2 p-2">
                     <Button variant="contained" color="success">
                         Shrink
                     </Button>
