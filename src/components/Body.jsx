@@ -1,5 +1,6 @@
 import React from 'react'
-import { Typography, TextField, Button, Alert, AlertTitle, Stack } from '@mui/material'
+import { Typography, TextField, Button, Alert, AlertTitle, Stack, Link } from '@mui/material'
+import QRCode from 'react-qr-code'
 
 export const Body = () => {
     return (
@@ -33,14 +34,25 @@ export const Body = () => {
                             <AlertTitle>Warning</AlertTitle>
                             This is a warning alert — <strong>check it out!</strong>
                         </Alert> */}
-                        <Alert severity="info" variant='outlined'>
+                        {/* <Alert severity="info" variant='outlined'>
                             <AlertTitle>Info</AlertTitle>
                             Your short url will appear here
-                        </Alert>
-                        {/* <Alert severity="success" variant='filled'>
-                            <AlertTitle>Success</AlertTitle>
-                            Here is Your Short url
                         </Alert> */}
+                        <Alert sx={{ width: '100%' }} severity="success" variant='filled'>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-10">
+                                        {/* <AlertTitle> */}
+                                            <Typography variant="h5" className='text-center p-4 text-white'>
+                                                
+                                            </Typography>
+                                        {/* </AlertTitle> */}
+                                        <p>Here is Your short url: <Link href="#" color="inherit">werds</Link></p>
+                                        <QRCode value='wa.me/+258870724804' />
+                                    </div>
+                                </div>
+                            </div>
+                        </Alert>
                     </Stack>
                 </div>
                 <div className="row mt-2 p-2">
