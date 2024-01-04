@@ -23,6 +23,7 @@ export const Body = () => {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
+        setIsSuccess(false)
         if (longurl === '') {
             setIsFormError(true)
             return
