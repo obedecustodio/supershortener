@@ -1,11 +1,12 @@
 body{
     color: white;
+    background-color: #0000;
 }
 
 .header {
     background-image: url("./assets/bg.png");
     background-size: cover;
-    height: 600px;
+    height: 500px;
     position: relative;
     overflow: hidden;
   }

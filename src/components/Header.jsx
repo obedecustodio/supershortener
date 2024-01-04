@@ -15,11 +15,11 @@ const Header = () => {
     return (
         <div className="header">
             <div className="overlay"></div>
-            <div className="text-animation-container mt-5">
+            {/* <div className="text-animation-container mt-5">
                 <div className="text-animation">
                     <h1 className="text-white">Url Shortener</h1>
                 </div>
-            </div>
+            </div> */}
             <div className="text-scroll-animation">
                 {texts.map((text, index) => (
                     <div key={index} className={`text ${index === currentTextIndex ? 'active' : ''}`}>

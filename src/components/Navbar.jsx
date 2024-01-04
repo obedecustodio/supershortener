@@ -31,13 +31,13 @@ const Navbar = () => {
                 <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">my Urls</a>
+                <a class="nav-link text-white" href="#">MyUrls</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Log in</a>
+                <a class="nav-link text-white" href="#">LogIn</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled text-white" aria-disabled="true">Sign up</a>
+                <a class="nav-link disabled text-white" aria-disabled="true">SignUp</a>
               </li>
             </ul>
           </div>
